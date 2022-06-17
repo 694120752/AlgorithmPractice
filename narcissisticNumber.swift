@@ -1,5 +1,3 @@
-//
-
 import Darwin
 ///*
 //给定非空字符串s，将该字符串分割成一些子串，使每个子串的ASCII码值的和均为水仙花数。
@@ -24,7 +22,6 @@ func isFlower(_ num:Int) ->Bool {
     let digit = num % 10
     let tenDigit = Int(num/10) % 10
     let hunderDigit = Int(num/100)
-    
     if num == Int((pow(Float(digit), 3) + pow(Float(tenDigit), 3) + pow(Float(hunderDigit), 3)))
     {
         return true
@@ -33,13 +30,10 @@ func isFlower(_ num:Int) ->Bool {
 }
 
 // 将字符拆分
-
 func spliteStringToArmStrongNumber(_ str:String){
-    
     if str.count <= 0 {
         return // 字符串切割完了
     }
-    
     // ascii 值
     var currentAsciiValue = 0
     // 当前的string里的index
@@ -62,7 +56,6 @@ func spliteStringToArmStrongNumber(_ str:String){
     }
 }
 
-
 // 分割好的 符合水仙花要求的子字符串
 var spliteArr:Array<String> = []
 if let inputString = readLine() {
@@ -72,16 +65,13 @@ if let inputString = readLine() {
     for subString in spliteArr {
         totalString += subString
     }
-    
     let fullStringArr = totalString.components(separatedBy: inputString)
     let result = fullStringArr.count - 1
-    
     if result > 1 { // 解不唯一
         print(-1)
     } else if result == 0 { // 分割失败
         print(0)
     } else {
         print(spliteArr.count)
-    }
-    
+    }  
 }
